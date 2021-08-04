@@ -7,8 +7,8 @@ productRouter
     .get('/', controller.fetch)
     .get('/:id', controller.fetchOne)
     .post('/', controller.create)
-    // .patch('/:id', controller.update)
-    // .delete('/:id', controller.del)
+    .patch('/:id', controller.update)
+    .delete('/:id', controller.del)
 
   
 module.exports = productRouter;

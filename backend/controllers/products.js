@@ -52,8 +52,45 @@ const create = async( req, res, next) => {
     await next;
 };
 
+const update = async( req, res, next) => {
+    try {
+        const product = await Product.findByIdAndUpdate({_id : req.params.id}, req.body);
+        res.status(200).send({
+            error: false,
+            message: `Product with Id ${req.params.id} is Updated!`,
+            product
+          });
+    } catch(err) {
+        res.status(500).send({
+            error: true,
+            message: "Error Updating Product",
+            exception: err.message
+        });
+    }
+    await next;
+};
+
+const del = async( req, res, next) => {
+    try {
+        await Product.deleteOne({_id : req.params.id});
+        res.status(200).send({
+            error: false,
+            message: `Product with Id ${req.params.id} is Removed!`
+          });
+    } catch(err) {
+        res.status(500).send({
+            error: true,
+            message: "Error Deleting Product",
+            exception: err.message
+        });
+    }
+    await next;
+};
+
 module.exports = {
     fetch,
     fetchOne,
     create,
+    update,
+    del
 };
