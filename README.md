@@ -9,7 +9,7 @@ $ cd amazona-app
 ```
 
 ### 2. Setup MongoDB
-Create database at https://cloud.mongodb.com or Download it localy from here: https://www.mongodb.com/try/download/community
+Create database at https://cloud.mongodb.com or Download it locally from here: https://www.mongodb.com/try/download/community
 
 ### 3. Run Backend
 ```

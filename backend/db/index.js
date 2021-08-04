@@ -4,7 +4,7 @@ const config = require('../config/index.js');
 const host = config.get('database').host;
 const username = config.get('database').username;
 const password = config.get('database').password;
-const dbname = config.get('database').dnname;
+const dbname = config.get('database').dbname;
 
 let DSN = `mongodb+srv://${username}:${password}@${host}/${dbname}?retryWrites=true&w=majority`;
 
