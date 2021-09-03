@@ -1,11 +1,13 @@
 require('./db');
 const express = require('express');
+const cors = require('cors');
 const productRouter = require('./routers/productRouter');
 const userRouter = require('./routers/userRouter');
 
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
