@@ -12,7 +12,7 @@ export function App() {
             <button
               type="button"
               className="open-sidebar"
-              onClick="{() => setSidebarIsOpen(true)}"
+              // onClick="{() => setSidebarIsOpen(true)}"
             >
               <i className="fa fa-bars"></i>
             </button>
@@ -25,7 +25,7 @@ export function App() {
         </header>
         <aside className="sidebar"></aside>
         <main>
-          <Route path="/product/:id" component={ProductScreen} />
+          <Route path="/products/:id" component={ProductScreen} />
           <Route path="/" exact={true} component={HomeScreen} />  
         </main>
         <footer className="row center">All right reserved.</footer>
