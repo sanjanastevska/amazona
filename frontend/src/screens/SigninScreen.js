@@ -43,7 +43,7 @@ export default function SigninScreen() {
                 <div>
                     <label />
                     <div>
-                        New custumer? {' '}
+                        New customer? {' '}
                         <Link to="/register">Create your account</Link>
                     </div>
                 </div>
