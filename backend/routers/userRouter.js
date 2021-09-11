@@ -6,7 +6,7 @@ const userRouter = express.Router();
 userRouter
     .get('/', controller.fetch)
     .post('/register', controller.register)
-    .post('/login', controller.login)
+    .post('/signin', controller.login)
     .patch('/:id', controller.update)
     .delete('/:id', controller.del)
 
