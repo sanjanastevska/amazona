@@ -36,7 +36,8 @@ const register = async (req, res, next) => {
         res.status(201).send({
             error: false,
             message: 'User registered!',
-            token: generateToken(createdUser)
+            token: generateToken(createdUser),
+            user: createdUser
         });
     } catch (err) {
         res.status(500).send({
