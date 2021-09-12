@@ -9,6 +9,7 @@ import RegisterScreen from "./screens/RegisterScreen";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 
 export function App() {
   const dispatch = useDispatch();
@@ -64,6 +65,7 @@ export function App() {
           <Route path="/register" component={RegisterScreen} />
           <Route path="/shipping" component={ShippingAddressScreen} />
           <Route path="/payment" component={PaymentMethodScreen} />
+          <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/" exact={true} component={HomeScreen} />
         </main>
         <footer className="row center">All right reserved.</footer>
