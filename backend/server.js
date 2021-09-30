@@ -5,7 +5,6 @@ const productRouter = require('./routers/productRouter');
 const userRouter = require('./routers/userRouter');
 const orderRouter = require('./routers/orderRouter');
 
-
 const app = express();
 app.use(express.json());
 app.use(cors());

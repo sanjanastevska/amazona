@@ -10,18 +10,21 @@ import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SigninScreen from "./screens/SigninScreen";
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
+import OrderScreen from "./screens/OrderScreen";
 
 export function App() {
-  const dispatch = useDispatch();
+
   const cart = useSelector(state => state.cart);
   const { cartItems } = cart;
 
   const userSignin = useSelector(state => state.userSignin);
   const { userInfo } = userSignin;
 
+  const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
   }
+
 
   return (
     <BrowserRouter>
@@ -66,6 +69,7 @@ export function App() {
           <Route path="/shipping" component={ShippingAddressScreen} />
           <Route path="/payment" component={PaymentMethodScreen} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
+          {/* <Route path="/order/:id" component={OrderScreen}></Route> */}
           <Route path="/" exact={true} component={HomeScreen} />
         </main>
         <footer className="row center">All right reserved.</footer>

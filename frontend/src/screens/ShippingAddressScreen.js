@@ -5,13 +5,13 @@ import CheckoutSteps from '../components/CheckoutSteps';
 
 export default function ShippingAddressScreen(props) {
 
-    const userSignin = useSelector(state => state.userSignin);
-    const {userInfo} = userSignin;
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
 
-    const cart = useSelector(state => state.cart);
-    const {shippingAddress} = cart;
+    const cart = useSelector((state) => state.cart);
+    const { shippingAddress } = cart;
 
-    if(!userInfo) {
+    if (!userInfo) {
         props.history.push('/signin');
     }
 
@@ -24,9 +24,18 @@ export default function ShippingAddressScreen(props) {
     const dispatch = useDispatch();
     const submitHandler = (e) => {
         e.preventDefault();
-        dispatch(saveShippingAddress({fullName, address, city, postalCode, country}));
-        props.history.push('/payment')
-    }
+        dispatch(
+            saveShippingAddress({
+                fullName,
+                address,
+                city,
+                postalCode,
+                country
+            })
+        );
+        props.history.push('/payment');
+    };
+
     return (
         <div>
             <CheckoutSteps step1 step2></CheckoutSteps>
@@ -41,20 +50,20 @@ export default function ShippingAddressScreen(props) {
                         id="fullName"
                         placeholder="Enter full name"
                         value={fullName}
-                        onChange={ e => setFullName(e.target.value)}
+                        onChange={(e) => setFullName(e.target.value)}
                         required
-                    />
+                    ></input>
                 </div>
                 <div>
                     <label htmlFor="address">Address</label>
                     <input
                         type="text"
                         id="address"
-                        placeholder="Enter Address"
+                        placeholder="Enter address"
                         value={address}
-                        onChange={ e => setAddress(e.target.value)}
+                        onChange={(e) => setAddress(e.target.value)}
                         required
-                    />
+                    ></input>
                 </div>
                 <div>
                     <label htmlFor="city">City</label>
@@ -63,37 +72,44 @@ export default function ShippingAddressScreen(props) {
                         id="city"
                         placeholder="Enter city"
                         value={city}
-                        onChange={ e => setCity(e.target.value)}
+                        onChange={(e) => setCity(e.target.value)}
                         required
-                    />
+                    ></input>
                 </div>
                 <div>
                     <label htmlFor="postalCode">Postal Code</label>
                     <input
                         type="text"
                         id="postalCode"
-                        placeholder="Enter Postal Code"
+                        placeholder="Enter postal code"
                         value={postalCode}
-                        onChange={ e => setPostalCode(e.target.value)}
+                        onChange={(e) => setPostalCode(e.target.value)}
                         required
-                    />
+                    ></input>
                 </div>
                 <div>
                     <label htmlFor="country">Country</label>
                     <input
                         type="text"
                         id="country"
-                        placeholder="Enter Country"
+                        placeholder="Enter country"
                         value={country}
-                        onChange={ e => setCountry(e.target.value)}
+                        onChange={(e) => setCountry(e.target.value)}
                         required
-                    />
+                    ></input>
                 </div>
                 <div>
                     <label />
-                    <button className="primary" type="submit">Continue</button>
+                    <button className="primary" type="submit">
+                        Continue
+                    </button>
                 </div>
             </form>
         </div>
-    )
+    );
 }
+
+
+
+
+
