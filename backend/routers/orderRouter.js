@@ -3,6 +3,9 @@ const controller = require('../controllers/orders');
 
 const orderRouter = express.Router();
 
-orderRouter.post('/', controller.orderAction);
+orderRouter
+    .get('/', controller.fetch)
+    .post('/', controller.orderAction)
+    .get('/:id', controller.fetchOne);
 
 module.exports = orderRouter;

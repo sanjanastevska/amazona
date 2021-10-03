@@ -69,7 +69,7 @@ export function App() {
           <Route path="/shipping" component={ShippingAddressScreen} />
           <Route path="/payment" component={PaymentMethodScreen} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
-          {/* <Route path="/order/:id" component={OrderScreen}></Route> */}
+          <Route path="/order/:id" component={OrderScreen}></Route>
           <Route path="/" exact={true} component={HomeScreen} />
         </main>
         <footer className="row center">All right reserved.</footer>

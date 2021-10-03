@@ -2,6 +2,11 @@ const Order = require('../models/orderModel.js');
 const User = require('../models/userModel.js');
 const { isAuth } = require('../utils.js');
 
+const fetch = (isAuth, async(req, res) => {
+    const orders = await Order.find({}).populate({user: req.user._id});
+    res.send(orders);
+});
+
 const orderAction = (isAuth, async (req, res) => {
     try {
         if (req.body.orderItems.length === 0) {
@@ -36,6 +41,19 @@ const orderAction = (isAuth, async (req, res) => {
     }
 });
 
+const fetchOne = (isAuth, async (req, res) => {
+    const order = await Order.findById(req.params.id);
+    if(order) {
+        res.send(order);
+    } else {
+        res.status(404).send({
+            message: 'Order Not Found'
+        })
+    }
+});
+
 module.exports = {
+    fetch,
+    fetchOne,
     orderAction
 };
