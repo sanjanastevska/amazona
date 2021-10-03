@@ -48,7 +48,7 @@ const orderSchema = mongoose.Schema({
     },
     PaymentMethod: {
         type: String,
-        required: true
+        // required: true
     },
     itemsPrice: {
         type: Number,
@@ -67,8 +67,7 @@ const orderSchema = mongoose.Schema({
         required: true
     },
     user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
+        type: String,
         required: true
     },
     isPaid: {
