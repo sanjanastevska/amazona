@@ -21,14 +21,19 @@ export default function OrderScreen(props) {
             script.type = "text/javascript";
             script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
             script.async = true;
+            // src is downloaded in browser and is ready to use
             script.onload = () => { setSdkReady(true) };
             document.body.appendChild(script);
         };
+        // if order is not loaded
         if (!order._id) {
+            // load order
             dispatch(detailsOrder(orderId));
         } else {
             if (!order.isPaid) {
+                // if paypal is loaded
                 if (!window.paypal) {
+                    // if it's not load 
                     addPayPalScript();
                 } else {
                     setSdkReady(true);
