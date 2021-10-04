@@ -1,11 +1,10 @@
 const Order = require('../models/orderModel.js');
-const User = require('../models/userModel.js');
 const { isAuth } = require('../utils.js');
 
-const fetch = (isAuth, async(req, res) => {
-    const orders = await Order.find({}).populate({user: req.user._id});
-    res.send(orders);
-});
+// const fetch = (isAuth, async(req, res) => {
+//     const orders = await Order.find({}).populate({user: req.user._id});
+//     res.send(orders);
+// });
 
 const orderAction = (isAuth, async (req, res) => {
     try {
@@ -22,10 +21,9 @@ const orderAction = (isAuth, async (req, res) => {
                 shippingPrice: req.body.shippingPrice,
                 taxPrice: req.body.taxPrice,
                 totalPrice: req.body.totalPrice,
-                user: req.user._id
+                user: req.body.user
             });
             const createdOrder = await order.save();
-            console.log("BACKEND ORDER0", createdOrder)
             res.status(201).send({
                 error: false,
                 message: 'New Order Created!',
@@ -53,7 +51,7 @@ const fetchOne = (isAuth, async (req, res) => {
 });
 
 module.exports = {
-    fetch,
+    // fetch,
     fetchOne,
     orderAction
 };

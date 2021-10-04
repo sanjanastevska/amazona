@@ -4,7 +4,7 @@ const controller = require('../controllers/orders');
 const orderRouter = express.Router();
 
 orderRouter
-    .get('/', controller.fetch)
+    // .get('/', controller.fetch)
     .post('/', controller.orderAction)
     .get('/:id', controller.fetchOne);
 
