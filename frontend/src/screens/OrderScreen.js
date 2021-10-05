@@ -30,7 +30,7 @@ export default function OrderScreen(props) {
             document.body.appendChild(script);
         };
         // if order is not loaded
-        if (!order._id || succesPay || (order && order._id !== orderId)) {
+        if (!order || succesPay || (order && order._id !== orderId)) {
             dispatch({
                 type: ORDER_PAY_RESET
             });
