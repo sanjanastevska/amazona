@@ -6,6 +6,7 @@ const orderRouter = express.Router();
 orderRouter
     // .get('/', controller.fetch)
     .post('/', controller.orderAction)
-    .get('/:id', controller.fetchOne);
+    .get('/:id', controller.fetchOne)
+    .put('/:id/pay', controller.update);
 
 module.exports = orderRouter;
