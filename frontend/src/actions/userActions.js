@@ -68,4 +68,5 @@ export const signout = () => async dispatch => {
     localStorage.removeItem('cartItems');
     localStorage.removeItem('shippingAddress');
     dispatch({ type: USER_SIGNOUT });
+    document.location.href = '/';
 };

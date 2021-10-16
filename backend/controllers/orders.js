@@ -6,6 +6,18 @@ const { isAuth } = require('../utils.js');
 //     res.send(orders);
 // });
 
+const mineList = (isAuth, async(req, res) => {
+    try {
+        const orders = await Order.find({})
+        res.send(orders);
+    } catch (err) {
+        res.status(404).send({
+            message: 'Orders Are Not Found',
+            exception: err.message
+        });
+    }
+});
+
 const orderAction = (isAuth, async (req, res) => {
     try {
         if (req.body.orderItems.length === 0) {
@@ -76,8 +88,10 @@ const update = (isAuth, async (req, res) => {
     }
 });
 
+
 module.exports = {
     // fetch,
+    mineList,
     fetchOne,
     orderAction,
     update
